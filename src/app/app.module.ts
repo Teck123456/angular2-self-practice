@@ -6,8 +6,10 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {AuthService} from 'app/core/auth.service';
-import { routing } from './app.routes';
-import { TodoComponent } from './todo/todo.component';
+import {routing} from './app.routes';
+import {TodoComponent} from './todo/todo.component';
+import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryTodoDbService } from './todo/todo-data';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { TodoComponent } from './todo/todo.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryTodoDbService),
     routing
   ],
   providers: [{
